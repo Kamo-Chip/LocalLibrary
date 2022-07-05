@@ -11,7 +11,8 @@ var catalogRouter = require("./routes/catalog");
 var app = express();
 
 var mongoose = require("mongoose");
-var mongoDB = "mongodb+srv://Kamogelo:k%40m02357@cluster0.uq2llb5.mongodb.net/?retryWrites=true&w=majority";
+var dev_db_url = "mongodb+srv://Kamogelo:k%40m02357@cluster0.uq2llb5.mongodb.net/?retryWrites=true&w=majority";
+var mongoDB = process.env.MONGODB_URI || dev_db_url;
 mongoose.connect(mongoDB, { useNewUrlParser: true,
 useUnifiedTopology: true});
 var db = mongoose.connection;
